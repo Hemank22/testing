@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>WACC</title>
+</head>
+<body>
+    <h1>Weighted Average Cost of Capital </h1>
+    <p>Weighted Average Cost of Capital (WACC) is the rate 
+        that a company is expected to pay on average to all its security holders to finance its assets.</p>
+
+    <form action="">
+        <label for="mve">Market Value Of Equity: </label>
+        <input type="number" name="" placeholder="enter the value" id="mve"> <br> <br>
+        <label for="mvd">Market Value Of Debt</label>
+        <input type="number" placeholder="enter value" name="" id="mvd"> <br> <br>
+        <label for="coe">Cost Of Equity</label>
+        <input type="number" placeholder="enter the value" name="" id="coe"> <br> <br>
+        <label for="cod">Cost Of Debt</label>
+        <input type="number" name="" placeholder="enter the value" id="cod"> <br> <br>
+        <label for="rate">Rate: </label>
+        <input type="number" placeholder="enter the rate" name="" id="rate"> <br> <br>
+
+        <input type="button" name="" value="Calculate" onclick="calcWACC()"  id=""> <br> <br>
+        WACC: <span id="result"></span>
+    </form>
+</body>
+</html>

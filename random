@@ -1,0 +1,389 @@
+        // future value
+        function calcFV(){
+            time = document.getElementById("Time").value;
+            rate = document.getElementById("Rate").value;
+            pvalue = document.getElementById("pvalue").value;
+            rate = (rate/100) + 1 
+
+            
+
+            Result = document.getElementById("result").innerHTML = pvalue*(Math.pow( rate,time));
+
+
+}       // present value
+        function calcPV(){
+            time = document.getElementById("Time").value;
+            rate = document.getElementById("Rate").value;
+            fvalue = document.getElementById("fvalue").value;
+            rate = (rate/100) + 1
+
+
+            Result = document.getElementById("result").innerHTML = fvalue/(Math.pow(rate,time))
+        }
+
+        // finding time value 
+        function FindTime(){
+            rate = document.getElementById("Rate").value;
+            pvalue = document.getElementById("pvalue").value;
+            fvalue = document.getElementById("fvalue").value;
+            rate = (rate/100) + 1
+
+            Result = document.getElementById("result").innerHTML = (Math.log(fvalue/pvalue))/(Math.log(rate))
+            
+        }
+        // finding rate
+        function FindRate(){
+            pvalue = document.getElementById("pvalue").value;
+            fvalue = document.getElementById("fvalue").value;
+            time = document.getElementById("Time").value;
+            time = (1/time) 
+            pfvalue = fvalue/pvalue
+
+            Result = document.getElementById("result").innerHTML = (Math.pow(pfvalue,time)-1)
+        }
+
+        // NPV calculations  (till 10 years max limit )  
+        // check if period can be less or more than 9 and also complete the small bits and parts related to it   
+    
+//      const NPV = (cashflow, discountRate) => cashflow
+//   .reduce((acc, val, i) => acc + val / Math.pow((1 + discountRate), i), 0);
+
+// const cashflow = [-10000, 11000];
+// const discountRate = 0.05;
+// console.log(NPV(cashflow, discountRate));   
+        function NPVcalc(){
+            drate = document.getElementById("drate").value;
+            time = document.getElementById("tperiod").value;
+            cashflow = document.getElementById("cashflow").value;
+            pvalue = document.getElementById("pvalue").value;
+            initialInvestment = document.getElementById("investment").value;
+            drate = 1 + drate
+
+            Result = document.getElementById("result").innerHTML = cashflow/Math.pow(drate,time)
+            NPVresult = document.getElementById("result").innerHTML = cashflow - initialInvestment
+
+
+        }
+
+
+        // FV of annuity ????? no heading
+        function noname(){
+            c = document.getElementById("c").value;
+            r = document.getElementById("r").value;
+            t = document.getElementById("t").value;
+            FVannuity = document.getElementById("FVann").value;
+            r = r/100
+    
+            Result = document.getElementById("result").innerHTML = c*((Math.pow(1+r,t))-1)/r
+
+        }
+
+        // another no heading
+
+        function anothernoname(){
+            pva = document.getElementById("pva").value;
+            r = document.getElementById("r").value;
+            pv = document.getElementById("pv").value;
+
+            r= r/100
+
+            Result = document.getElementById("result").innerHTML = pva*(1+r)
+        }
+
+        // PV of annuity 
+        function PVofAnnuity(){
+
+            c = document.getElementById("c").value;
+            r = document.getElementById("r").value;
+            t = document.getElementById("t").value;
+            FVannuity = document.getElementById("FVann").value;
+            r = r/100
+            
+            Result = document.getElementById("result").innerHTML = c*((1-(1/Math.pow(1+r,t))/r))
+    
+        }
+        // Annuity Due FV
+        function AnnuityDueFV(){
+
+            fva = document.getElementById("fva").value;
+            r = document.getElementById("r").value;
+            pv = document.getElementById("pv").value;
+            r = r/100
+            
+            Result = document.getElementById("result").innerHTML = fva*(1+r)
+        }
+
+        // find C w Equal Payments
+        function CWEP(){
+
+            r = document.getElementById("r").value;
+            t = document.getElementById("t").value;
+            fv = document.getElementById("fv").value;
+            c = document.getElementById("c").value
+            
+            r = r/100
+            Result = document.getElementById("result").innerHTML = fv/((((Math.pow(1+r,t))-1/r)))
+        }
+
+         // Preffered Stock
+        function PrefferedStock(){
+
+            p = document.getElementById("p").value;
+            r = document.getElementById("r").value;
+            PriceToday = document.getElementById("PriceToday").value;
+
+            r = r/100
+            Result = document.getElementById("result").innerHTML = p/r
+        }
+            
+        // Simple Interest 
+        function SI(){
+            pvalue = document.getElementById("pvalue").value;
+            rate = document.getElementById("Rate").value;
+            time = document.getElementById("Time").value;
+            fvalue = document.getElementById("fvalue").value;
+
+            Result = document.getElementById("result").innerHTML = pvalue*(1+(rate*time))
+        }
+        // present value perpetuity 
+        function PVP(){
+            cf = document.getElementById("cf").value;
+            rate = document.getElementById("Rate").value;
+            pvalue = document.getElementById("pvalue").value;
+
+            Result = document.getElementById("result").innerHTML = cf/(rate/100)
+        }
+        // Present Value Perpetuity Payment Occuring after T
+        function PVPT(){
+            cf = document.getElementById("cf").value;
+            rate = document.getElementById("Rate").value;
+            time = document.getElementById("Time").value;
+            pvalue = document.getElementById("pvalue").value;
+            pvp = document.getElementById("pvp").value;
+
+            Result = document.getElementById("result").innerHTML = pvalue/(Math.pow(1+(rate/100)),(time-1))
+        }
+
+        // Growing Perpetuity 
+
+        function GrowingPerp(){
+            cf = document.getElementById("cf").value;
+            rate = document.getElementById("Rate").value;
+            growth = document.getElementById("growth").value;
+
+            Result = document.getElementById("result").innerHTML = cf/((rate/100)-(growth/100))
+
+        }
+
+        // Inflation (Fisher Effect)
+
+        function Inflation(){
+            NominalYield = document.getElementById("R").value;
+            realInterest = document.getElementById("r").value;
+            Hinflation = document.getElementById("H").value;
+
+            NominalYield = NominalYield/100
+            realInterest = realInterest/100
+           
+
+
+            Result = document.getElementById("result").innerHTML = (((1+NominalYield)/(1+realInterest))-1)
+        }
+
+    // Nominal/Yield (fisher effect)
+        function NY(){
+            realInterest = document.getElementById("r").value;
+            Hinflation = document.getElementById("H").value;
+            NominalYield = document.getElementById("R").value;
+
+            realInterest = realInterest/100
+            Hinflation = Hinflation/100
+
+            Result = document.getElementById("result").innerHTML = ((1+realInterest)*(1+ Hinflation))-1 
+
+        }
+
+// Real Interest 
+        function Realint(){
+            NominalYield = document.getElementById("R").value;
+            Hinflation =  document.getElementById("H").value;
+            realInterest =  document.getElementById("r").value;
+
+            NominalYield = NominalYield/100
+            Hinflation = Hinflation/100
+
+            Result = document.getElementById("result").innerHTML = ((1+NominalYield)/(1+Hinflation)-1)
+        }
+
+
+    // Semiannual Bond Pricing (U.S)  ( variable period )
+     
+    function SemiBondPricing(){
+        coupon = document.getElementById("coupon").value;
+        Yield = document.getElementById("Yield").value; 
+        Years =  document.getElementById("Years").value;
+        CouponRate = document.getElementById("CouponRate").value;
+        SemiAnnualCoupon = document.getElementById("SAC").value;
+        Rate = document.getElementById("Rate").value;
+        Price = document.getElementById("Price").value;
+        Period = document.getElementById("Period").value;
+
+
+        Period = Years*2 
+        coupon = coupon/100
+        CouponRate = coupon*100
+        SemiAnnualCoupon = CouponRate/2
+        Rate = Yield/2   // usually taken as rate = ......("Rate")
+        // make face value (100) should variable 
+        
+        Result = document.getElementById("result").innerHTML = SemiAnnualCoupon*((1-1/Math.pow(1+Rate,Period)/Rate)+(100/Math.pow(1+Rate,Period)))
+    }
+
+    // Annual Bond Pricing (EURO) variable period 
+    function AnnualBondPricing(){
+        coupon = document.getElementById("coupon").value;
+        Yield = document.getElementById("Yield").value; 
+        Years =  document.getElementById("Years").value;
+        x =  document.getElementById("x").value;// check while putting in html
+
+        AnnualCoupon = document.getElementById("AC").value;
+        Rate = document.getElementById("Rate").value;
+        Price = document.getElementById("Price").value;
+
+        Result = document.getElementById("result").innerHTML = AnnualCoupon*((1-1/Math.pow(1+Yield,Period)/Yield)+(x/Math.pow(1+Yield,Period)))
+
+    }
+
+  // make face value (100) should variable 
+
+
+
+    
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SHEEEEEEEEEET ONEEEEEEEE DONEEEEEEEEEEEEE , come back for NPV bt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+// Sheet 2 
+
+
+// Just paid a dividend
+
+function JPAD(){
+    Dividend = document.getElementById("Dividend").value;
+    GrowthRate = document.getElementById("GrowthRate").value;
+    ReturnRate = document.getElementById("ReturnRate").value;
+    PresentPrice = document.getElementById("PresentPrice").value;
+
+    GrowthRate = GrowthRate/100
+    ReturnRate = ReturnRate/100
+    Result = document.getElementById("result").innerHTML = (Dividend*(1+GrowthRate))/(ReturnRate-GrowthRate)
+}
+
+
+// Will pay a dividend (P)
+
+function WPAD(){
+    Dividend = document.getElementById("Dividend").value;
+    GrowthRate = document.getElementById("GrowthRate").value;
+    ReturnRate = document.getElementById("ReturnRate").value;
+    PresentPrice = document.getElementById("PresentPrice").value;
+
+    GrowthRate = GrowthRate/100
+    ReturnRate = ReturnRate/100
+    Result = document.getElementById("result").innerHTML = Dividend/(ReturnRate-GrowthRate)
+}
+
+// Just Paid: Require Return
+function JPRR(){
+
+    Dividend = document.getElementById("Dividend").value;
+    GrowthRate = document.getElementById("GrowthRate").value;
+    ReturnRate = document.getElementById("ReturnRate").value;
+    PresentPrice = document.getElementById("PresentPrice").value;
+    
+    GrowthRate = GrowthRate/100
+    Result = document.getElementById("result").innerHTML = ((Dividend*(1+GrowthRate))/PresentPrice)
+} 
+
+// Will Pay: Require Return 
+function WPRR(){
+    Dividend = document.getElementById("Dividend").value;
+    GrowthRate = document.getElementById("GrowthRate").value;
+    ReturnRate = document.getElementById("ReturnRate").value;
+    PresentPrice = document.getElementById("PresentPrice").value;
+
+    GrowthRate = GrowthRate/100
+    Result = document.getElementById("result").innerHTML = (Dividend*PresentPrice)+(GrowthRate)
+}
+
+// NPV for multiple Discount Rates 
+// Come back to this bt 
+
+
+
+// 2-Stage Growth 
+function TwoStageGrowth(){
+
+    r = document.getElementById("r").value;
+    d0 = document.getElementById("d0").value;
+    d1 = document.getElementById("d1").value;
+    g1 = document.getElementById("g1").value;
+    g2= document.getElementById("g2").value;
+ t= document.getElementById("t").value;
+dtPLUS1 = document.getElementById("dtPLUS1").value;
+pt = document.getElementById("pt").value;
+pv = document.getElementById("pv").value;
+
+d1=d0*(1+g1);
+dtPLUS1=d0*Math.pow((1+g1),t)*(1+g2)
+pt=dtPLUS1/(r-g2)
+
+Result = document.getElementById("result").innerHTML = (d1/(r-g1))*Math.pow((1-((1+g1)/(1+r)),t))+(pt/Math.pow((1+r),t))
+
+}
+
+// 3-Stage Growth 
+function ThreeStageGrowth(){
+
+    r = document.getElementById("r").value;
+    d0 = document.getElementById("d0").value;
+    d1 = document.getElementById("d1").value;
+    d2 = document.getElementById("d2").value;
+    d3 = document.getElementById("d3").value;
+    y1 = document.getElementById("y1").value;//year 1
+    y2= document.getElementById("y2").value;
+    y3= document.getElementById("y3").value;
+    fgrowth=document.getElementById("fgrowth").value;
+ t= document.getElementById("t").value;
+dtPLUS1 = document.getElementById("dtPLUS1").value;
+pt = document.getElementById("pt").value;
+pv = document.getElementById("pv").value;
+
+d1=d0*(1+y1);
+d2=d0*(1+y1)*(1+y2)
+d3=d2*(1+y3)
+pt=d3/(r-fgrowth)
+
+Result = document.getElementById("result").innerHTML = d1/(1+r)+d2/math.pow((1+r),2)+pt/math.pow((1+r),2)               
+}       
+
+
+
+// Nonconstant Growth 3-Stage Growth (with similar growth rates)
+// ????? ask about the non constant growth 
+// remove different growth rates
+
+
+
+
+//capex also till 10 periods 
+// ask about bid price and sheet1
+
+
+
+
+// lowest costing is best scenario in best and worst case scene
+
+
+

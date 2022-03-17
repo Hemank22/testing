@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>PMT</title>
+</head>
+<body>
+    <h1>Loan Payment Per Period</h1>
+    <p>Payment for a loan based on constant payments and a constant interest rate</p>
+
+    <form action="">
+        <label for="fir">Fractional Interest Rate: </label>
+        <input type="number" placeholder="enter the value" name="" id="fir"> <br> <br>
+        <label for="nop">Number of Payments: </label>
+        <input type="number" placeholder="enter the value" name="" id="nop"> <br> <br>
+        <label for="principal">Principal</label>
+        <input type="number" name="" placeholder="enter the value" id="principal"> <br> <br>
+
+        <input type="button" value="Calculate" onclick="calcPMT()"> <br> <br>
+        PMT : <span id="result"></span>
+    </form>
+    
+</body>
+</html>
